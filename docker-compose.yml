@@ -4,7 +4,7 @@ services:
    db:
      image: gotechnies/mysql:5.7
      volumes:
-       - /root/test/db:/var/lib/mysql
+       - $PWD/db:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: somewordpress
@@ -19,7 +19,7 @@ services:
      ports:
        - "80:80"
      volumes:
-       - /root/test/webroot:/var/www/html
+       - $PWD/webroot:/var/www/html
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
